@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>MotriLog – Add Vehicle</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>MotriLog – Add Vehicle</title>
+    <link
+      rel="stylesheet"
   <link rel="stylesheet" href="index.css" />
-</head>
+    />
+  </head>
 
-<body class="add-vehicle-page">
-
-  <div class="container">
-
-    <!-- Left Image -->
-    <div class="left-panel">
-      <div class="brand-logo">MotriLog</div>
+  <body class="add-vehicle-page">
+    <!-- LOGO (Top Left Clickable) -->
+    <div class="logo-box">
+      <span class="logo-text" onclick="window.location.href='/'">MotriLog</span>
     </div>
 
-    <!-- Right Form Card -->
-    <div class="right-panel">
+    <!-- FORM CONTAINER FLOATING RIGHT -->
+    <div class="form-card">
+      <a href="/dashboard" class="back-link">← Back to Dashboard</a>
 
-      <div class="form-card">
+      <h1 class="title">Add New Vehicle</h1>
 
-        <a href="dashboard" class="back-link">← Back to Dashboard</a>
+      <form id="add-vehicle-form" class="form-grid">
+        <div class="form-group">
+          <label for="vehicle-make">Make</label>
+          <input
+            type="text"
+            id="vehicle-make"
+            placeholder="e.g., Nissan"
+            required
+          />
+        </div>
 
-        <h1 class="title">Add New Vehicle</h1>
+        <div class="form-group">
+          <label for="vehicle-model">Model</label>
+          <input
+            type="text"
+            id="vehicle-model"
+            placeholder="e.g., Altima"
+            required
+          />
+        </div>
 
-        <form id="add-vehicle-form" class="form-grid">
+        <div class="form-group">
+          <label for="vehicle-year">Year</label>
+          <input type="number" id="vehicle-year" placeholder="2020" required />
+        </div>
 
-          <!-- MAKE -->
-          <div class="form-group">
-            <label>Make</label>
-            <input type="text" id="vehicle-make" placeholder="e.g., Nissan" required>
-          </div>
+        <div class="form-group">
+          <label for="vehicle-plate">License Plate</label>
+          <input
+            type="text"
+            id="vehicle-plate"
+            placeholder="ABC-1234"
+            required
+          />
+        </div>
 
-          <!-- MODEL -->
-          <div class="form-group">
-            <label>Model</label>
-            <input type="text" id="vehicle-model" placeholder="e.g., Altima" required>
-          </div>
+        <div class="form-group">
+          <label for="vehicle-color">Color</label>
+          <input
+            type="text"
+            id="vehicle-color"
+            placeholder="e.g., Black"
+            required
+          />
+        </div>
 
-          <!-- YEAR -->
-          <div class="form-group">
-            <label>Year</label>
-            <input type="number" id="vehicle-year" placeholder="2020" required>
-          </div>
+        <div class="form-group">
+          <label for="vehicle-mileage">Initial Mileage</label>
+          <input
+            type="number"
+            id="vehicle-mileage"
+            placeholder="e.g., 120000"
+            required
+          />
+        </div>
 
-          <!-- LICENSE PLATE -->
-          <div class="form-group">
-            <label>License Plate</label>
-            <input type="text" id="vehicle-plate" placeholder="ABC-1234" required>
-          </div>
+        <div class="form-group full">
+          <label for="vehicle-vin">VIN</label>
+          <input
+            type="text"
+            id="vehicle-vin"
+            placeholder="Enter VIN"
+            required
+          />
+        </div>
 
-          <!-- VIN -->
-          <div class="form-group full">
-            <label>VIN (Vehicle Identification Number)</label>
-            <input type="text" id="vehicle-vin" placeholder="Enter full VIN" required>
-          </div>
+        <p id="vehicle-error" class="error-text full" hidden></p>
 
-          <!-- PHOTO UPLOAD -->
-          <div class="form-group full">
-            <label>Upload Vehicle Photo (Optional)</label>
-            <input type="file" id="vehicle-photo" accept="image/*">
-          </div>
-
-          <!-- ERROR -->
-          <p id="vehicle-error" class="error-text" hidden></p>
-
-          <!-- BUTTON -->
-          <button type="submit" class="btn-primary full">SAVE VEHICLE</button>
-
-        </form>
-      </div>
-
+        <button type="submit" class="btn-primary full">SAVE VEHICLE</button>
+      </form>
     </div>
 
-  </div>
-
-  <!-- Shared Auth JS -->
-  <script src="js/auth.js"></script>
-</body>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/add-vehicle.js') }}"></script>
+  </body>
 </html>
