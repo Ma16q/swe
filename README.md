@@ -1,2 +1,2 @@
 # swe
-This a part of our SWE project.
+A part of our **SWE** project.
